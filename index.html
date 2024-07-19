@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocAdventure by Kofi Hair-Ralston</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('screenshot.png');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+        .game-container {
+            position: absolute;
+            top: 100px; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: calc(100% - 150px); /* Adjust as needed */
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            overflow: hidden;
+        }
+        .document-buttons {
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .document-buttons button {
+            background-color: #f1f3f4;
+            border: none;
+            padding: 8px 12px;
+            margin-right: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .game-content {
+            padding: 20px;
+            height: calc(100% - 50px); /* Adjust based on buttons height */
+            overflow-y: auto;
+        }
+        .stats-window {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .stats-window.collapsed {
+            width: 30px;
+            height: 30px;
+            overflow: hidden;
+        }
+        .stats-window.expanded {
+            width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="game-container">
+        <div class="document-buttons">
+            <button>Meeting notes</button>
+            <button>Email draft</button>
+            <button>More</button>
+        </div>
+        <div class="game-content">
+            <!-- Game content will be dynamically inserted here -->
+        </div>
+    </div>
+    <div class="stats-window collapsed">
+        <div class="stats-header">Stats</div>
+        <div class="stats-content">
+            <!-- Character stats will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for toggling stats window
+        document.querySelector('.stats-window').addEventListener('click', function() {
+            this.classList.toggle('collapsed');
+            this.classList.toggle('expanded');
+        });
+    </script>
+</body>
+</html>
