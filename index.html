@@ -70,6 +70,17 @@
             background-color: #888;
             border-radius: 4px;
         }
+        .mailbox {
+            position: fixed;
+            top: 10px;
+            right: 32px;
+            width: 155px; /* Adjust width as needed */
+            height: 40px; /* Adjust height as needed */
+            background: transparent; /* Invisible background */
+            border: 2px solid red; /* Temporary red border for visibility */
+            z-index: 1000; /* Ensure it is on top of other elements */
+            cursor: pointer; /* Show pointer cursor on hover */
+}
     </style>
 </head>
 <body>
@@ -77,6 +88,7 @@
     <a href="https://docs.google.com/" target="_blank">
         <img src="Images/docslogo.png" alt="Google Docs" class="docs-logo">
     </a>
+    <a href="mailto:khair-ralston@friendsbalt.org?subject=Google%20Docs%20Feedback%2Ffeature%20request" class="mailbox"></a>
     <div class="game-content">
         <!-- Game content will be dynamically inserted here -->
         <p>Welcome to DocAdventure! Your journey begins here...</p>
