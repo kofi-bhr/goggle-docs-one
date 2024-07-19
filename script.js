@@ -47,14 +47,14 @@ async function initializeGame() {
 Welcome to DocAdventure, ${name}!
 
 Game Instructions:
-- The "Google Docs" logo in the top left corner will take you to the actual Google Docs website
-- The "Feedback" button in the top right corner will send an email with any feature requests or bugs you find
-- Press SHIFT + ENTER to age up
-- Type your responses below to make a choice and then press ENTER
-- The "comment" on the right shows your life stats, which update as you go on
-- You can unlock achievements as the game progresses
+- The "Google Docs" logo in the top left corner will take you to the actual Google Docs website                             
+- The "Feedback" button in the top right corner will send an email with any feature requests or bugs you find                             
+- Press SHIFT + ENTER to age up                             
+- Type your responses below to make a choice and then press ENTER                             
+- The "comment" on the right shows your life stats, which update as you go on                             
+- You can unlock achievements as the game progresses                             
 
-Are you ready to begin your adventure? (Type 'yes' to start)`);
+Are you ready to begin your adventure? (Type 'yes' to start, or any other key to restart)`);
 
     const startChoice = await getUserInput();
     if (startChoice.toLowerCase() === 'yes') {
@@ -87,7 +87,7 @@ async function gameLoop() {
 // Function to handle situations
 async function handleSituation() {
     const prompt = `
-You are an AI running a life simulation game. Generate a situation for the player to respond to.
+You are running a life simulation game, in the style of Oregon Trail. Generate a short, one-line situation for the player to respond to.
 
 Current game state:
 ${JSON.stringify(gameState, null, 2)}
@@ -101,11 +101,13 @@ Rules:
    - Make situations appropriate for the character's age and life circumstances
    - Include a mix of positive and negative situations
    - Occasionally reference past choices or events from the game history
+   - It should be clear what 
 3. Options:
    - Provide 2-4 clear options for the player to choose from
-   - Each option should have potential consequences on the character's stats
+   - Each option should have clear consequences on the character's stats
 
 Return a JSON object with the following structure:
+
 {
   "text": "Situation description and options",
   "type": "situation",
@@ -177,6 +179,7 @@ Rules:
    - Make events appropriate for the character's age and life circumstances
    - Include a mix of positive and negative events
    - Occasionally reference past choices or events from the game history
+   - Have this affect the character's rice purity test score or other stats
 3. Stats:
    - Adjust relevant stats based on the event
    - Changes should be in the range of -10 to +10 points
@@ -190,7 +193,7 @@ Return a JSON object with the following structure:
     "statName1": newValue,
     "statName2": newValue
   },
-  "achievement": "New achievement unlocked" (optional)
+  "achievement": "New achievement unlocked" (optional, only relevant if something notable happens like a wedding, driver's license, first house, ivy league acceptance, etc.)
 }
 
 Do not include any additional text outside of the JSON object.`;
